@@ -2,13 +2,20 @@ import React, { useState, useEffect } from "react";
 
 function Home() {
 	//create your first component
-	const [color, setColor] = useState("red")
+	const [color, setColor] = useState("null")
+
+	// useEffect(() => {}, [color])
+	// console.log(color)
+
 
 	return (
 		<div className="container">
-			<div className="redLight">hello</div>
-			<div className="yellowLight"></div>
-			<div className="greenLight"></div>
+			<h3>Traffic Light</h3>
+			<div className="lightContainer">
+				<div onClick={() => setColor("redLight")} className={(color == "redLight") ? "light redLight selected": "light redLight"}></div>
+				<div onClick={() => setColor("yellowLight")} className={(color == "yellowLight") ? "light yellowLight selected":"light yellowLight"}></div>
+				<div onClick={() => setColor("greenLight")} className={(color == "greenLight") ? "light greenLight selected" : "light greenLight"}></div>
+			</div>
 		</div>
 	)
 }
